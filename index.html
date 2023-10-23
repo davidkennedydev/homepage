@@ -1,10 +1,49 @@
-<body>
-  <h1> Excellence Tracker </h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.css">
+    <style>
+body {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+        .markdown-body {
+          box-sizing: border-box;
+          min-width: 200px;
+          max-width: 980px;
+          margin: 0 auto;
+          padding: 45px;
+        }
+    </style>
+  </head>
+  <body>
+    <h1> Excellence Tracker </h1>
 
-  <p> This projects has the main purpose to catalog my state of understanding of what is the best practices in each scope.</p>
-  <p> Clearely this projects ignore teams specific needs, context and legacy resources, so don't that this projects as and statement that it's the only valid way to do something. This project main purpose is help me track my learning and distribute what to me seems interesting to consider apply on new projects </p>
+    <p> This projects has the main purpose to catalog my state of understanding of what is the best practices in each scope.</p>
+    <p> Clearely this projects ignore teams specific needs, context and legacy resources, so don't that this projects as and statement that it's the only valid way to do something. This project main purpose is help me track my learning and distribute what to me seems interesting to consider apply on new projects </p>
 
-  <h2> C++ Projects </h2>
+    <h2> C++ Projects </h2>
 
+    <mark>
+      WIP
+    </mark>
 
-</body>
+    <h1>Your Progress Tracker</h1>
+    <div class="markdown-body" id="content"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked@2.0.0/marked.min.js"></script>
+    <script>
+      fetch('https://raw.githubusercontent.com/davidkennedydev/homepage/master/progress-tracker.md')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('content').innerHTML = marked(data);
+        });
+    </script>
+
+  </body>
+</html>
