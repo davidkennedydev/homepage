@@ -1,18 +1,27 @@
 ### 1. **Freelancing Platforms**:
 
-- [ ] Research and create a profile on **Toptal**.
+- [x] Research and create a profile on **Toptal**.
   - [ ] Set aside 1-2 hours to craft a compelling bio highlighting your experience and skills.
-  - [ ] Update your portfolio with recent projects and skills.
+  - [x] Update your portfolio with recent projects and skills.
 
 - [ ] Repeat the same process for **CodementorX**.
 
 ### 2. **Open Source Contributions**:
 
-- [ ] Dedicate a fixed amount of time weekly for open source. E.g., 2 hours every Saturday.
+- [x] Dedicate a fixed amount of time [weekly for open source](https://github.com/davidkennedydev?tab=overview&from=2023-11-01&to=2023-11-05). E.g., 2 hours every Saturday.
+  - [x] Persistent activity unless a day at week
+  - [ ] Persistent activity every day
+  - [ ] Persistent activity unless 2h a day
+      - [ ] Measure time spent
+      - [ ] Record time spent at each issue
+
 - [ ] Identify 2-3 active projects on **GitHub** related to your interest.
   - [ ] Contribute to one project for a month before moving to another to show consistent contributions.
 
-- [ ] Explore the feasibility of creating your open source project or tool.
+- [x] Explore the feasibility of creating your open source project or tool.
+  - [x] Create a C++ compile-time serializer.
+    - [Reflect data members issues](https://github.com/davidkennedydev/introspecto-cpp/issues)
+  - [ ] Implement the [GraphQL-Cpp](https://github.com/davidkennedydev/GraphQL-Cpp) discovery and auto-serialization
 
 ### 3. **Develop a Personal Brand**:
 
@@ -45,13 +54,19 @@
 ### 6. **Networking**:
 
 - [ ] Join 2-3 online communities or groups related to your areas of interest.
+  - [x] Subscribed to IEEE Membership
+  - [ ] Contribute on Felipe Deschamps TabNews
 - [ ] Set a goal to engage in meaningful discussions at least twice a week.
+  - [ ] Comment on YouTube videos, that I have knoledge
+  - [ ] Comment on Medium articles, that I have knoledge
 - [ ] Attend one virtual meetup or webinar every month.
 
 ### 7. **Remote Opportunities**:
 
 - [ ] Bookmark job boards like **Remote OK** and **We Work Remotely**.
 - [ ] Set aside time every two days to review and apply to relevant positions.
+  - [x] Respond to recruiters with great remote opportunities
+  - [ ] Periodic review of applications and knowledge & intrest match
 
 ### 8. **Mentorship**:
 
