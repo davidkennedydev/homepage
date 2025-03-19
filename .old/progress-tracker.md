@@ -10,12 +10,12 @@
 
 - [x] Dedicate a fixed amount of time [weekly for open source](https://github.com/davidkennedydev?tab=overview&from=2023-11-01&to=2023-11-05). E.g., 2 hours every Saturday.
   - [x] Persistent activity unless a day at week
-  - [ ] Persistent activity every day
+  - [x] Persistent activity every day
   - [ ] Persistent activity unless 2h a day
       - [ ] Measure time spent
       - [ ] Record time spent at each issue
 
-- [ ] Identify 2-3 active projects on **GitHub** related to your interest.
+- [x] Identify 2-3 active projects on **GitHub** related to your interest.
   - [ ] Contribute to one project for a month before moving to another to show consistent contributions.
 
 - [x] Explore the feasibility of creating your open source project or tool.
@@ -47,7 +47,7 @@
 
 ### 5. **Create a Product**:
 
-- [ ] Brainstorm 3-5 product ideas (software tool, mobile app, etc.).
+- [x] Brainstorm 3-5 product ideas (software tool, mobile app, etc.).
 - [ ] Choose one idea and break it down into stages of development.
 - [ ] Dedicate time weekly to work on the product, setting small milestones.
 
@@ -63,10 +63,10 @@
 
 ### 7. **Remote Opportunities**:
 
-- [ ] Bookmark job boards like **Remote OK** and **We Work Remotely**.
-- [ ] Set aside time every two days to review and apply to relevant positions.
+- [x] Bookmark job boards like **Remote OK** and **We Work Remotely**.
+- [x] Set aside time every two days to review and apply to relevant positions.
   - [x] Respond to recruiters with great remote opportunities
-  - [ ] Periodic review of applications and knowledge & intrest match
+  - [x] Periodic review of applications and knowledge & intrest match
 
 ### 8. **Mentorship**:
 
