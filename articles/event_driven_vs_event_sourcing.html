@@ -1,0 +1,149 @@
+<h1>Event Driven vs Event sourcing</h1>
+
+<p>
+A <strong>event driven</strong> architecture is a architeture where the event is created to represent some business state and saved in a place where a event consumer can get this data and emmit new events while change his internal state or create other kind of side effect, like notify someone.
+</p>
+
+<p>
+A _event sourced_ architecture is a way of split the real final state in many events that when computed give you the desired final state in some moment of time. All goes around have a log of events instead of a central state whatever it is.
+</p>
+
+<p>
+Looking that way is acceptable have a event driven architecture where some central state is maintained, but do this in a event source is just the oposite of his main purpose.
+</p>
+
+<p>
+Event notification is a mechanism to invert dependecy to make 2 or more systems depend from an event instead one each other, that way the event becomes the interface between this systems and they doesn't need understand details from one each other.
+</p>
+
+<p>
+The main part on this concept is the event notification where a producer generate this event and other system consume this event to do something.
+</p>
+
+<h2> 1. Event Notification </h2>
+
+<p>
+An interesting side of working with events is that diferent from something with a transient state like a function call now we have something that is more contret to think about, pass around and deal with.
+</p>
+
+<p>
+The diference between events and commands, is how we communicate about then and his intention.
+<ul>
+  <li>
+    <b>Commnad</b> tells what should be done. They knows what should be done and are telling it to the system. This not wait for response but have a clear intent.
+  </li>
+  <li>
+    <b>Event's</b> tells in a more passive way that something happens. Without expect anything.
+  </li>
+</ul>
+<pre>
+ Take care to not create passive agressive events, that under the hood are commands, be clear about the intent.
+ ex.:  bad: emailNotificationShouldBeSentNotifingThatClientAddressChange
+       good: notifyAddressChange -> [Email System]
+       or    [Customer System] -> clientAddressChanged
+</pre>
+</p>
+
+<p>
+One problem with event decoupling is that to have a overall understand of what the system does you need run the system and see what is emitted and consumed during a major interaction with the system.
+There is not code more to see the overall behaviour of the system, or to better understand his purpose.
+</p>
+
+<h2> 2. Event-carried State Transfer </h2>
+
+<p>
+A event that not inform enougth information about what is happening force the event consumers to go back and call the event sender to realy get more details about the event that occurrs, to do meaninfull work.
+</p>
+
+<p>
+We can reduce this burden by add more information on event, like what's the previous values instead just the final state on the change event. Send too much information using generic events can be a problem because happen many unusefull events that don't bring an actionable thing to the interested consumers.
+</p>
+
+<p>
+There is a problem where be to much specific, make systems back source to get more information and be to much generic waste event's with customers that's not interested on the real intrinsic event change.
+</p>
+
+<p>
+To treat the problem of be bombarded by back requests after produce event's born a pattern named **Event-carried State Transfer**.
+That way I forbidden any contact with the event sender, I just should use the event content. And the event contains all state needed to all possible consumers that start to keep a copy of the interested part of this event state.That improve:
+<ul>
+  <li> performace on sender and receiver that doesn't need do extra request and response to give/get more details.
+  </li>
+  <li> reduces the load time on the sender system that doesn't need respond all the calls
+  </li>
+  <li> availability, if the sender goes down or start to be unresponsive the consumers don't care they just need work with the already produced events.
+  </li>
+</ul>
+</p>
+
+As all other things on computing when someone says that now has a perfect availability it start to lose consistency. (Remember the CAP theorem)
+
+And now we have replicated data with eventual consistency.
+
+<h2> 3. Event Sourcing </h2>
+
+Each event generate a event log with the many events that change the global application state, even the delete changes.
+And the test that an system should pass for be of this type is that if the application state is complete losed these can be rebuild from the log.
+
+A common subttle example of event source system is GIT, CVS, or any other source code versioning tool.
+Another example to business people is the bank accounting ledgers (a book with all the financial movements, credits and debits, like: +12, -5, +2, etc), that when computed say what's your final balance account.
+
+Snapshots are created to improve performace to compute the final state.
+
+Pros:
+
+<ul>
+  <li> Audit </li>
+  <li> Debugging </li>
+  <li> Historic State </li>
+  <li> Alternative State </li>
+  <li> Memory Image </li>
+</ul>
+
+<p>
+We can have a pure in-memory system, example [LMAX](https://martinfowler.com/articles/lmax.html) is blazing fast, and low lattency, the entire system runs in single thread, and all operations happen in memory, they reach 6 milion transacitons per second.
+</p>
+
+<p>
+Cons:
+</p>
+
+<ul>
+  <li> Unfamiliar </li>
+  <li> External Systems </li>
+  <li> need to transform any response of an external system into an event </li>
+  <li> Event Schema </li>
+  <li>ow be confident of the replayability of the system while change the code that manipulate this events </li>
+  <li> Identifiers </li>
+  <li>hen we generate identifiers that can be reproduceble </li>
+  <li> ? Asynchrony </li>
+  <li>dds complexity, but Event source systems can be synchronous </li>
+  <li> ? Versioning </li>
+</ul>
+
+<p>
+When change the application state if I try to put old events to process maybe I don't get the same results, it's trick. That's not a problem to systems that doesn't need work with old events, and that a recent snapshot is sufficient.
+</p>
+
+<blockquote>
+"Don't have any business logic in between the event and the storage"
+Greg Youg
+</blockquote>
+
+<h2> 4. CQRS </h2>
+
+<p>
+Command Query Responsibility Segregation, good pattern when used properly.
+The main thing here is have completed separaed models for updating commands and query models.
+</p>
+
+
+<h2> Reference </h2>
+
+<ul>
+  <li> https://hipsters.tech/clean-architeture-hipsters-ponto-tech-254/ </li>
+  <li> https://www.youtube.com/watch?v=FKFu78ZEIi8 </li>
+  <li> https://www.youtube.com/watch?v=y1KJITitFA8&ab_channel=GabrielZimmermann </li>
+  <li> https://www.youtube.com/watch?v=STKCRSUsyP0&ab_channel=GOTOConferences </li>
+</ul>
+

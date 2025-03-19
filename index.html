@@ -29,21 +29,17 @@ body {
 
     <h2> C++ Projects </h2>
 
-    <mark>
-      WIP
-    </mark>
+    <h1>Articles</h1>
 
-    <h1>Your Progress Tracker</h1>
-    <div class="markdown-body" id="content"></div>
+    <h2> Architecture </h2>
 
-    <script src="https://cdn.jsdelivr.net/npm/marked@2.0.0/marked.min.js"></script>
-    <script>
-      fetch('https://raw.githubusercontent.com/davidkennedydev/homepage/master/progress-tracker.md')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('content').innerHTML = marked(data);
-        });
-    </script>
+    <ul>
+      <li> Monolith </li>
+      <li> Continuous Delivery </li>
+      <li> Continuous Integration </li>
+      <li> <b>S</b>ervice <b>O</b>riented <b>A</b>rchitecture </li>
+      <li> <a href="articles/event_driven_vs_event_sourcing.html"><b>Event</b> Sourcing vs <b>Event</b> Driven</a>, explain the main difference and solve a common confusion. </li>
+    </ul>
 
   </body>
 </html>
